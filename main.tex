@@ -1,0 +1,218 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{vietnam}
+\usepackage{tikz}
+\usepackage{pgfgantt}
+\usepackage{xcolor}
+\definecolor{p1scolor}{RGB}{173, 216, 230}   % Light Blue
+\definecolor{p2scolor}{RGB}{248, 173, 173}     % Forest Green
+\definecolor{p3scolor}{RGB}{175, 251, 175}      % Dark Orange
+\definecolor{idlecolor}{gray}{0.8}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage{forest}
+\usepackage{setspace}
+\usepackage{booktabs}
+\usepackage{array} % để dùng p{}
+\usepackage{enumitem} % để tùy chỉnh itemize trong bảng
+\usepackage[table]{xcolor} % để tô màu bảng
+\usepackage{lastpage}
+\usepackage{colortbl}
+\usepackage{fancyhdr}
+\usepackage{listings}
+\usepackage{longtable}
+\usepackage{caption}
+\pagestyle{fancy}
+\fancyhead{} % clear all header fields
+\fancyhead[L]{
+	\begin{tabular}{rl}
+		\begin{picture}(25,15)(0,0)
+			\put(0,-8){\includegraphics[width=10mm, height=10mm]{logobk.png}}
+			%\put(0,-8){\epsfig{width=10mm,figure=hcmut.eps}}
+		\end{picture}&
+		%\includegraphics[width=8mm, height=8mm]{hcmut.png} & %
+		\begin{tabular}{l}
+			\textcolor{black}{\textbf{\bf \ttfamily TRƯỜNG ĐẠI HỌC BÁCH KHOA - ĐHQG-HCM}}\\
+			\textcolor{black}{\textbf{\bf \ttfamily KHOA KHOA HỌC VÀ KỸ THUẬT MÁY TÍNH}}
+		\end{tabular} 	
+	\end{tabular}
+}
+\fancyhead[R]{
+	\begin{tabular}{l}
+		\tiny \bf \\
+		\tiny \bf 
+\end{tabular}  }
+\fancyfoot{} % clear all footer fields
+\fancyfoot[L]{\scriptsize \ttfamily Bài tập lớn môn DataBase  \\ \ttfamily  Niên khóa 2025-2026}
+\fancyfoot[R]{\scriptsize \ttfamily Trang {\thepage}/\pageref{LastPage}}
+\renewcommand{\headrulewidth}{0.4pt} % Đặt độ dày cho đường kẻ ngang ở phần header là 0.4pt
+\renewcommand{\headwidth}{\textwidth} % Đặt độ dài của đường kẻ ngang trong header bằng chiều dài của văn bản
+\renewcommand{\footrulewidth}{0.4pt} % Đặt độ dày cho đường kẻ ngang ở phần footer là 0.4pt
+%\renewcommand{\footwidth}{\textwidth} % Đặt độ dài của đường kẻ ngang trong footer bằng chiều dài của văn bản
+
+\usepackage{enumitem} %bullets
+\usepackage{tocbibind}
+\makeatletter
+\renewcommand*{\thesection}{\Roman{section}}
+\renewcommand*{\thesubsection}{\thesection.\arabic{subsection}}
+\renewcommand*{\p@subsection}{}
+\renewcommand*{\thesubsubsection}{\thesubsection.\arabic{subsubsection}}
+\renewcommand*{\p@subsubsection}{}
+\makeatother
+
+\usepackage[left=3cm,right=2cm,bottom=4cm,margin=2cm,top=3.5cm, headsep=2cm]{geometry}
+\setlength{\parindent}{2em}
+%\usepackage{wallpaper}
+%\usepackage[firstpage]{draftwatermark} 
+\usepackage{xcolor}
+\usepackage{tikz} 
+\usepackage{scrextend}
+\changefontsizes{14pt}
+%\usepackage{background}
+\usetikzlibrary{calc}
+%Code listing style named "mystyle"
+\lstdefinestyle{mystyle}{
+  backgroundcolor=\color{backcolour}, commentstyle=\color{codegreen},
+  keywordstyle=\color{magenta},
+  numberstyle=\tiny\color{codegray},
+  stringstyle=\color{codepurple},
+  basicstyle=\ttfamily\footnotesize,
+  breakatwhitespace=false,         
+  breaklines=true,                 
+  captionpos=b,                    
+  keepspaces=true,                 
+  numbers=left,                    
+  numbersep=5pt,                  
+  showspaces=false,                
+  showstringspaces=false,
+  showtabs=false,                  
+  tabsize=2
+}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\lstset{
+    language=c,
+    basicstyle=\footnotesize\ttfamily,
+    numbers=left,
+    numberstyle=\tiny,
+    stepnumber=1,
+    numbersep=5pt,
+    backgroundcolor=\color{blue!12},
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    frame=single,
+    rulecolor=\color{gray},
+    tabsize=4,
+    captionpos=b,
+    breaklines=true,
+    breakatwhitespace=true,
+    title=\lstname,
+    keywordstyle=\color{blue}, % Màu cho từ khóa bình thường
+    commentstyle=\color{green!50!black}, % Màu cho comment
+    stringstyle=\color{red!80!black}, % Màu cho chuỗi
+    morekeywords={[2]int, void, char, float, double, long, short, unsigned, signed},
+    keywordstyle={[2]\color{red}} % Màu đỏ cho kiểu trả về
+}
+
+\onehalfspacing
+\renewcommand{\thesection}{\arabic{section}}
+\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+
+\begin{document}
+\begin{titlepage}
+
+\begin{tikzpicture}[remember picture,overlay,inner sep=0,outer sep=0]
+     \draw[blue!70!black,line width=4pt] ([xshift=-1.5cm,yshift=-2cm]current page.north east) coordinate (A)--([xshift=1.5cm,yshift=-2cm]current page.north west) coordinate(B)--([xshift=1.5cm,yshift=2cm]current page.south west) coordinate (C)--([xshift=-1.5cm,yshift=2cm]current page.south east) coordinate(D)--cycle;
+
+     \draw ([yshift=0.5cm,xshift=-0.5cm]A)-- ([yshift=0.5cm,xshift=0.5cm]B)--
+     ([yshift=-0.5cm,xshift=0.5cm]B) --([yshift=-0.5cm,xshift=-0.5cm]B)--([yshift=0.5cm,xshift=-0.5cm]C)--([yshift=0.5cm,xshift=0.5cm]C)--([yshift=-0.5cm,xshift=0.5cm]C)-- ([yshift=-0.5cm,xshift=-0.5cm]D)--([yshift=0.5cm,xshift=-0.5cm]D)--([yshift=0.5cm,xshift=0.5cm]D)--([yshift=-0.5cm,xshift=0.5cm]A)--([yshift=-0.5cm,xshift=-0.5cm]A)--([yshift=0.5cm,xshift=-0.5cm]A);
+
+
+     \draw ([yshift=-0.3cm,xshift=0.3cm]A)-- ([yshift=-0.3cm,xshift=-0.3cm]B)--
+     ([yshift=0.3cm,xshift=-0.3cm]B) --([yshift=0.3cm,xshift=0.3cm]B)--([yshift=-0.3cm,xshift=0.3cm]C)--([yshift=-0.3cm,xshift=-0.3cm]C)--([yshift=0.3cm,xshift=-0.3cm]C)-- ([yshift=0.3cm,xshift=0.3cm]D)--([yshift=-0.3cm,xshift=0.3cm]D)--([yshift=-0.3cm,xshift=-0.3cm]D)--([yshift=0.3cm,xshift=-0.3cm]A)--([yshift=0.3cm,xshift=0.3cm]A)--([yshift=-0.3cm,xshift=0.3cm]A);
+
+   \end{tikzpicture}
+   
+\begin{center}
+    \vspace{0pt}
+    \fontsize{15}{16}
+    \textbf{ĐẠI HỌC QUỐC GIA THÀNH PHỐ HỒ CHÍ MINH}
+    
+    \vspace{2pt}
+    \textbf{TRƯỜNG ĐẠI HỌC BÁCH KHOA}
+    
+    \vspace{2pt}
+    \textbf{KHOA KHOA HỌC VÀ KỸ THUẬT MÁY TÍNH}
+\end{center}
+\vspace{15pt}
+
+
+\begin{center}
+    \includegraphics[scale=1.5]{logobk.jpg}
+    
+    \vspace{10pt}
+    \vspace{10pt}
+    \textbf{\textcolor{black}{\large \textbf{BÁO CÁO BÀI TẬP LỚN }}}\\
+    \vspace{10pt}
+ {\textcolor{black}{\textbf{MÔN: Hệ Cơ sở dữ liệu}}}\\
+ \textcolor{blue}{\hrulefill}\\[5pt] % Khoảng cách giữa dòng lớn và đường kẻ
+{\Large\textup {\textcolor{blue}{ \textbf{Đề tài: Thương mại điện tử}}}}\\
+ 
+\textcolor{blue}{\hrulefill}\\[5pt] % Khoảng cách giữa dòng lớn và đường kẻ
+\begin{tabular}{@{}p{3em}p{0.8\linewidth}@{}}
+    & \textbf{Giảng viên hướng dẫn:} ThS.  \\
+    & \hspace{1.1em} \textbf{Sinh viên thực hiện:} Nguyễn Quang Huy -- 2311202 \\
+    & \hspace{11.6em} Kiều Chung Tú -- \\
+    & \hspace{11.6em} Trịnh Đức Sơn -- 2353056 \\
+    & \hspace{11.6em} Nguyễn Đỗ Khánh Trình -- 2353237\\
+    & \hspace{11.6em} Huỳnh Võ Quốc Thắng -- 2313180\\
+    & \hspace{11.6em} Nguyễn Chí Thanh -- 2313079\\
+    & \hspace{11.6em} Nguyễn Đức Thịnh -- 2313284 \\
+\end{tabular}
+\end{center}
+\vspace{18pt}
+\hfill % Add this line to fill the horizontal space
+\begin{center}
+    \textit{Thành phố Hồ Chí Minh, tháng 10 năm 2025}
+\end{center}
+\end{titlepage}
+\begin{center}
+
+    \textbf{\large Danh sách thành viên:} \\
+    \vspace{0.3cm}
+    \renewcommand{\arraystretch}{1.5}
+    \begin{tabular}{|c|l|c|c|c|}
+        \hline
+        \textbf{STT} & \textbf{Họ và Tên} & \textbf{MSSV} & \textbf{Tỉ lệ đóng góp} & \textbf{Ký tên xác nhận} \\
+        \hline
+        1 & \large Nguyễn Quang Tùng & 2313817 &  & \\
+        \hline
+        2 & \large Võ Quốc Bình & 2112912 &  & \\
+        \hline
+        3 & \large Nguyễn Quang Huy & 2311202 &  & \\
+        \hline
+        4 & \large Phan Đình Khang & 2311459 &  & \\
+        \hline
+        5 & \large Nguyễn Trọng Nghĩa & 2312271 &  & \\
+        \hline
+    \end{tabular}
+\end{center}
+\large\textbf{\textit{Chủ đề:}} \large Sàn thương mại điện tử Tiki
+
+\newpage
+\tableofcontents
+\newpage
+\section{Tìm hiểu hệ thống liên quan}
+\input{chapter1.tex}
+
+\section{Mô tả hệ thống đề xuất}
+\input{chapter2.tex}
+\section{Thiết kế ERD}
+\section{Ánh xạ sang lược đồ CSDL}
+\end{document}

@@ -1,0 +1,10 @@
+\contentsline {section}{M\d {u}c l\d {u}c}{2}{section*.1}%
+\contentsline {section}{\numberline {1}Tìm hiểu hệ thống liên quan}{3}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Hệ thống Shopee}{3}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Hình ảnh khảo sát}{3}{subsection.1.2}%
+\contentsline {section}{\numberline {2}Mô tả hệ thống đề xuất}{3}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Mô tả hê thống đề xuất}{3}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Mô tả các kiểu thực thể, các thuộc tính, mối liên kết}{3}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Mô tả ràng buộc về ngữ nghĩa}{4}{subsection.2.3}%
+\contentsline {section}{\numberline {3}Thiết kế ERD}{4}{section.3}%
+\contentsline {section}{\numberline {4}Ánh xạ sang lược đồ CSDL}{4}{section.4}%
