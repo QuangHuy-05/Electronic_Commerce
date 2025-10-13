@@ -1,7 +1,9 @@
 # Fdb version 4
-["pdflatex"] 1760100028.99422 "d:/ElectronicCommerce/main.tex" "main.pdf" "main" 1760100031.07682 0
+["pdflatex"] 1760338343.22781 "d:/ElectronicCommerce/main.tex" "main.pdf" "main" 1760338344.68722 0
   "C:/Users/quang/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1760085986 88371 b965f57369ed322039596060d18f4416 ""
+  "C:/Users/quang/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1200.pk" 1760080397 14064 aef0a3dbe466ebe2a1cb71d8882a1495 ""
   "C:/Users/quang/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1760080223 13286967 d309ea66a61579259eb7c6011769f3da ""
+  "C:/Users/quang/AppData/Local/Programs/MiKTeX/fonts/tfm/jknappen/ec/tcrm1200.tfm" 993062508 1444 95ffe0f19b974d50849790c8225c7ef7 ""
   "C:/Users/quang/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1233951848 1004 54797486969f23fa377b128694d548df ""
   "C:/Users/quang/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1233951848 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
   "C:/Users/quang/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1233951854 916 f87d7c45f9c908e672703b83b72241a3 ""
@@ -218,14 +220,14 @@
   "C:/Users/quang/AppData/Local/Programs/MiKTeX/tex/latex/vntex/vncaps.tex" 1368738347 3273 a55ebdb07413d2fea580f210e3c0b252 ""
   "C:/Users/quang/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1729265222 55384 b454dec21c2d9f45ec0b793f0995b992 ""
   "chapter1.tex" 1760087684 1211 cd6f2b74f8251ddddcb962d2a4155756 ""
-  "chapter2.tex" 1760100028 1958 91526f897868a085eedd23083910b01b ""
-  "d:/ElectronicCommerce/main.tex" 1760088159 8288 d4551cfface4638821e7315c28100c6a ""
+  "chapter2.tex" 1760338342 16443 55004bf77639a6650b8e8bd6b101e99a ""
+  "d:/ElectronicCommerce/main.tex" 1760328594 8316 6bfda4560704c1818226f0c7058650cb ""
   "logobk.jpg" 1760086045 16534 d0a0c854d25612072fe0307c0e7655e8 ""
   "logobk.png" 1752482567 15500 472a8c05c4ec56839c0bd57622ec7631 ""
-  "main.aux" 1760100030 1697 57470d135da871146c3dac66107e635d "pdflatex"
-  "main.out" 1760100030 1934 7795a2ad1e00c273de788c611404d0f3 "pdflatex"
-  "main.tex" 1760088159 8288 d4551cfface4638821e7315c28100c6a ""
-  "main.toc" 1760100030 917 58aaf2b21748f9520cf181ad68cd94e5 "pdflatex"
+  "main.aux" 1760338344 1697 86e24041732fbe95bf7ba1edc38934d7 "pdflatex"
+  "main.out" 1760338344 1934 7795a2ad1e00c273de788c611404d0f3 "pdflatex"
+  "main.tex" 1760328594 8316 6bfda4560704c1818226f0c7058650cb ""
+  "main.toc" 1760338344 917 de1b78d82728028bcbc1a8040cd6653f "pdflatex"
   (generated)
   "main.aux"
   "main.log"

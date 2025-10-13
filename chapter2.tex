@@ -1,32 +1,125 @@
 \fontsize{11.5pt}{13pt}\selectfont
+
 \setlength{\leftmargini}{50pt}
 \subsection{Mô tả hê thống đề xuất}
+\hspace*{2em} Hệ thống cơ sở dữ liệu được nhóm đề xuất mô phỏng lại mô hình hoạt động của một sàn thương mại điện tử tương tự Shopee,
+ tập trung vào việc quản lý người dùng, sản phẩm, đơn hàng, thanh toán, vận chuyển và đánh giá. 
+ Mục tiêu của hệ thống là xây dựng một cơ sở dữ liệu có khả năng hỗ trợ đầy đủ quy trình giao dịch giữa người mua và 
+ người bán, đảm bảo tính toàn vẹn, chính xác và khả năng mở rộng khi tích hợp thêm các dịch vụ phụ trợ như ví điện tử, 
+ mã giảm giá hay thông báo hệ thống. \\
+ \hspace*{2em} Trong hệ thống này, có hai nhóm người dùng chính bao gồm khách hàng (Customer), người bán (Seller). 
+ Mỗi nhóm người dùng có quyền truy cập và chức năng riêng phù hợp với vai trò của họ. \\
+\hspace*{2em} Khách hàng là người sử dụng phổ biến nhất của hệ thống. Họ có thể đăng ký tài khoản cá nhân bằng email hoặc 
+số điện thoại, đăng nhập và quản lý thông tin cá nhân. Sau khi đăng nhập, khách hàng có thể duyệt danh mục sản phẩm, 
+tìm kiếm theo từ khóa hoặc bộ lọc, xem chi tiết từng sản phẩm, thêm sản phẩm vào giỏ hàng, đặt hàng và 
+lựa chọn phương thức thanh toán. Sau khi đơn hàng được giao thành công, khách hàng có quyền đánh giá và 
+bình luận về sản phẩm cũng như người bán. Hệ thống lưu trữ lịch sử mua hàng của từng khách hàng để hỗ trợ tính năng 
+gợi ý sản phẩm phù hợp trong tương lai. \\
+\hspace*{2em} Người bán là đối tượng cung cấp hàng hóa trên nền tảng. Mỗi người bán có thể tạo gian hàng riêng, 
+đăng tải sản phẩm mới kèm hình ảnh, mô tả, giá bán và số lượng tồn kho. 
+Người bán có thể theo dõi danh sách đơn hàng phát sinh, xác nhận hoặc hủy đơn, cập nhật trạng thái giao hàng, 
+phản hồi đánh giá của khách hàng và thống kê doanh thu. Hệ thống cũng lưu thông tin về uy tín và 
+mức độ đánh giá của người bán, được tổng hợp từ các phản hồi của người mua sau mỗi giao dịch. \\
+\hspace*{2em} Hệ thống vận hành dựa trên luồng nghiệp vụ chính bắt đầu từ quá trình đăng ký – đăng nhập người dùng, 
+tiếp theo là tìm kiếm và lựa chọn sản phẩm, tiến hành đặt hàng và thanh toán, rồi đến vận chuyển, nhận hàng và đánh giá.
+ Mỗi bước trong quy trình đều được ghi nhận dưới dạng dữ liệu trong cơ sở dữ liệu nhằm đảm bảo khả năng truy vết và 
+ quản lý toàn vẹn thông tin. \\
+ \hspace*{2em} Ngoài các chức năng chính, hệ thống còn hỗ trợ nhiều tính năng mở rộng tương tự Shopee như lưu trữ giỏ hàng tạm thời, 
+ áp dụng voucher giảm giá, lưu địa chỉ giao hàng mặc định của khách hàng, gửi thông báo về tình trạng đơn hàng và 
+ ghi nhận lịch sử giao dịch. Mỗi giao dịch trong hệ thống được liên kết với các thực thể người dùng, 
+ sản phẩm và thanh toán, đảm bảo mọi hoạt động được quản lý thống nhất trong cơ sở dữ liệu tập trung.\\
+\hspace*{2em}Với cấu trúc như vậy, hệ thống đề xuất không chỉ đảm bảo đáp ứng đầy đủ các nghiệp vụ cốt lõi của một nền tảng 
+thương mại điện tử mà còn tạo nền tảng vững chắc cho việc mở rộng trong tương lai như 
+tích hợp hệ thống gợi ý sản phẩm, chatbot chăm sóc khách hàng hoặc phân tích hành vi mua sắm bằng công nghệ trí tuệ nhân tạo. Cơ sở dữ liệu được thiết kế đảm bảo toàn vẹn dữ liệu, hạn chế dư thừa và hỗ trợ mở rộng trong tương lai.
 \subsection{Mô tả các kiểu thực thể, các thuộc tính, mối liên kết}
-\textbf{Customer:} Thông tin lưu trong khách hàng sẽ bao gồm ID(PK), Name, tổng tiền chi tiêu (total\_spending), email, 
-có thể có nhiều địa chỉ(Address), Date\_of\_birth(Ngày sinh), 
-Gender, có thể có nhiều Phone\_number, Date\_Created(ngày tạo tài khoản), 
-Avatar.Người dùng có thể bỏ nhiều sản phẩm vào trong giỏ hàng. 
-Khi mua hàng đã chọn trong giỏ hàng, Hệ thống sẽ xuất đơn hàng tổng, 
-nếu có các sản phẩm ở các của hàng khác nhau thì sẽ được tách ra các order riêng để vận chuyển. 
-1 customer cũng có thể sỡ hữu nhiều voucher và khi mua hàng xong Customer có thể viết 
-Review cho đơn hàng đó. 1 customer chỉ có 1 Member\_ship \\
-\textbf{Shop:} Thông tin được lưu trữ trong cửa hàng sẽ bao gồm Id(PK), có thể có nhiều Address, 
-Day\_create(Ngày tạo tài khoản), Email, Tax\_code, Avatar, shop\_discription(mô tả của cửa hàng), 
-rating\_average(điểm đánh giá của cửa hàng), total\_sale(tổng số sản phẩm đã bán), rating\_response(Tỉ lệ phản hồi), 
-avg\_time\_response(trung bình thời gian phản hồi) .
-1 Shop có thể chứa nhiều sản phẩm và sản phẩm sẽ được chia theo Item và Category.\\ 
-\textbf{Cart (Giỏ hàng)} \\
-\textbf{Cart\_item} \\
-\textbf{Category (Danh mục)} \\
-\textbf{Item (Mặt hàng)} \\
-\textbf{Product\_Variant} \\
-\textbf{Order\_group} \\
-\textbf{Order (Đơn hàng)} \\
-\textbf{Voucher}
-\textbf{Review (Đánh giá)} \\
-\textbf{Payment (Thanh toán)} \
-\textbf{Shipment (Vận chuyển)} \\
-\textbf{Membership\_tier} \\
+\hspace*{2em} \textbf{User (Người dùng)} User là thực thể cha, biểu diễn mọi người dùng trên nền tảng, 
+bao gồm cả người mua hàng (Customer) và người bán hàng (Shop Owner).
+Mỗi người dùng có mã định danh duy nhất (User\_id, khóa chính) và các thông tin đăng nhập cơ bản như Username (duy nhất)
+, Password, Email (duy nhất), Ngày tạo tài khoản (Date\_created), Ảnh đại diện (Avatar), Số điện thoại (Phone\_number), 
+Giới tính (Gender), và Ngày sinh (Day\_of\_birth).
+Một User có thể thuộc nhiều vai trò (ví dụ: người bán, người mua), được xác định thông qua quan hệ chuyên biệt với các thực thể con. \\ \\
+\hspace*{2em} \textbf{Customer (Khách hàng)} Customer là thực thể con kế thừa từ User, biểu diễn người mua hàng trên nền tảng thương mại điện tử.
+Mỗi Customer được xác định bởi Customer\_id (khóa chính, đồng thời là khóa ngoại tham chiếu đến User\_id).
+Các thuộc tính riêng của Customer bao gồm Tier\_id (liên kết đến hạng thành viên), Total\_spending (tổng chi tiêu).
+Một Customer có thể phát sinh nhiều nhóm đơn hàng (Order\_Group), sở hữu duy nhất một giỏ hàng (Cart), được cấp nhiều mã giảm giá (Voucher), và có thể viết tối đa một đánh giá cho mỗi đơn hàng đã hoàn tất.
+Tại một thời điểm, mỗi khách hàng chỉ thuộc một hạng thành viên (Membership\_Tier). \\ \\
+\hspace*{2em} \textbf{Shop (Cửa hàng)} Shop cũng là thực thể con kế thừa từ User, đại diện cho cửa hàng hoặc người bán 
+trong hệ thống.
+Mỗi Shop có Shop\_id (khóa chính, đồng thời là khóa ngoại tham chiếu đến User\_id), cùng các thuộc tính đặc trưng như 
+Address, Tax\_code, Shop\_description, Total\_sales, Average\_rating, Response\_rate, và Average\_response\_time.
+Một Shop có thể đăng bán nhiều mặt hàng (Item), sắp xếp sản phẩm theo nhiều danh mục (Category), và tiếp nhận nhiều đơn hàng (Order) từ các khách hàng. \\ \\ 
+\hspace*{2em} \textbf{Cart (Giỏ hàng)} Cart là nơi lưu các sản phẩm mà khách hàng dự định mua. Mỗi giỏ hàng được định danh bằng Cart\_id (khóa chính), thuộc về một người dùng (User\_id), và có thể chứa nhiều mục (Cart\_Item). Các thuộc tính tổng hợp như total\_payment và total\_product phản ánh tổng giá trị và số lượng sản phẩm trong giỏ, được tính toán tự động từ các mục con. Mỗi Cart\_Item đại diện cho một sản phẩm cụ thể trong giỏ, có cart\_item\_id (khóa chính), liên kết đến cart\_id, product\_id và shop\_id, đồng thời lưu số lượng muốn mua, giá tại thời điểm thêm (có thể cập nhật nếu người bán cập nhật giá), và tổng tiền tạm tính. Một giỏ hàng chỉ thuộc một khách hàng duy nhất, nhưng có thể chứa sản phẩm của nhiều shop khác nhau. \\
+\\
+\hspace*{2em} \textbf{Category (Danh mục)} Category dùng để phân loại sản phẩm trên hệ thống. Mỗi danh mục có Category\_id (khóa chính), tên danh mục và có thể chứa nhiều mặt hàng thuộc shop khác nhau. Một danh mục có thể nằm trong một danh mục cha, tạo cấu trúc phân cấp nhiều tầng (Ví dụ Thời trang -> Áo thun -> Áo thun nam). Mỗi Item thuộc về một category duy nhất.\\ \\ 
+\hspace*{2em} \textbf{Item (Mặt hàng)}Item thể hiện một nhóm sản phẩm chung được hiển thị trên trang bán hàng. 
+Mỗi item có Item\_id (khóa chính) và một danh mục (tham chiếu đến Category). 
+Các thuộc tính chính bao gồm tên mặt hàng (Item\_name), tổng số lượng sản phẩm (Total\_item) và thông tin mô tả chung. 
+Một item có thể có nhiều biến thể (product\_variant) như kích cỡ, màu sắc khác nhau, 
+giúp người mua chọn tùy chọn phù hợp. \\ \\ 
+\hspace*{2em} \textbf{Product\_Variant:}Product\_Variant lưu chi tiết từng mẫu sản phẩm cụ thể. Mỗi sản phẩm có Prod\_id (khóa chính), 
+liên kết đến Item\_id, kèm các thông tin như tên, mô tả, giá, số lượng tồn kho, đặc tả kỹ thuật (kích cỡ, màu sắc), 
+trạng thái hàng (Status), tổng lượt bán và điểm đánh giá trung bình. Mỗi sản phẩm có ít nhất một hình minh họa (Illustrative\_image). 
+Một sản phẩm có thể được đánh giá bởi nhiều khách hàng, nằm trong nhiều giỏ hàng (Cart\_item) và xuất hiện trong nhiều chi tiết đơn hàng (Order\_detail).
+Sản phẩm có thể có nhiều ảnh được quản lý thông qua thực thể (Product\_Image), gồm Prod\_image\_id (khóa chính), prod\_id (khóa ngoại), đường dẫn hình ảnh và cờ is\_primary để xác định ảnh chính. Bên cạnh đó, 
+thực thể Product\_Attribute lưu các thuộc tính chi tiết của sản phẩm như kích thước và màu sắc, giúp mô tả chính xác từng biến thể.
+ \\ \\
+\hspace*{2em} \textbf{Order\_group:} Thực thể Order\_Group lưu trữ thông tin về nhóm đơn hàng được tạo bởi khách hàng trong cùng một lần thanh toán. 
+Mỗi nhóm đơn hàng có order\_group\_id (khóa chính), liên kết với customer\_id, voucher\_id, payment\_id và tier\_id. Các thuộc tính khác bao gồm total\_amount, coin\_shopee, total\_delivery, 
+total\_discount (bao gồm giảm giá từ voucher và membership), total\_payment, ship\_address và created\_at.
+Một Order\_Group chỉ thuộc về một Customer, có thể chứa nhiều Order khác nhau và chỉ áp dụng duy nhất một Voucher 
+cho toàn bộ nhóm.  \\ \\ 
+\hspace*{2em} \textbf{Order (Đơn hàng):} Thực thể Order đại diện cho một đơn hàng cụ thể của khách hàng đối với một cửa hàng (Shop) 
+trong hệ thống. Mỗi đơn hàng có order\_id (khóa chính), liên kết đến order\_group\_id, customer\_id, shop\_id, 
+và shipping\_id. Các thuộc tính bao gồm total\_amount và ship\_method.
+Một Order thuộc về một Order\_Group, một Shop, có một Payment và một Shipping tương ứng. 
+Ngoài ra, một Order có thể có nhiều Order\_Detail (mỗi chi tiết thể hiện một sản phẩm được mua) và 
+1 Order\_Status(thể hiện tiến trình xử lý đơn hàng) bao gồm status , status\_timestamp .   \\ \\
+\hspace*{2em} \textbf{Order\_Detail (Chi tiết đơn hàng):}
+Thực thể Order\_Detail lưu trữ thông tin chi tiết về các sản phẩm cụ thể trong từng đơn hàng. Mỗi bản ghi có order\_detail\_id (khóa chính), liên kết với order\_id và product\_id. Các thuộc tính bao gồm product\_specification (như màu sắc, kích thước), quantity, price, total\_price và note.
+Mỗi Order\_Detail thuộc về một Order và một Product, thể hiện mối liên hệ giữa sản phẩm được đặt mua và đơn hàng tương ứng.
+\hspace*{2em} \textbf{Voucher:} Voucher lưu các chương trình khuyến mãi hoặc giảm giá do hệ thống hoặc shop phát hành. 
+Mỗi mã có Voucher\_id (khóa chính), mô tả, loại giảm giá (Discount\_type, như phần trăm, giá trị cố định hay giảm/miễn phí vận chuyển), 
+điều kiện áp dụng (Conditions), thời gian hiệu lực (Valid\_from, Valid\_to) và số lượng còn lại. 
+Một voucher có thể được cấp cho nhiều khách hàng và áp dụng cho nhiều nhóm đơn hàng (Order\_Group). \\ \\
+\hspace*{2em} \textbf{Review (Đánh giá):}Review thể hiện phản hồi của khách hàng sau khi nhận hàng và đã xác nhận trên hệ thống. 
+Mỗi đánh giá có review\_id, liên kết với Customer\_id và product\_id, chứa nội dung nhận xét (comment), 
+điểm đánh giá (rating), hình ảnh minh họa (image\_review) và ngày tạo (created\_at). 
+Một sản phẩm có thể có nhiều đánh giá từ nhiều khách hàng khác nhau. \\ \\ 
+\hspace*{2em} \textbf{Payment (Thanh toán):} Payment lưu trữ thông tin thanh toán cho đơn hàng. 
+Mỗi bản ghi có Payment\_id (khóa chính), liên kết với Order\_id, 
+kèm thông tin phương thức thanh toán (Payment\_method), trạng thái thanh toán (Payment\_status), 
+số tiền đã thanh toán (Amount\_paid) và ngày thanh toán (Payment\_date). \\ \\
+\hspace*{2em} \textbf{Shipment (Vận chuyển):} Shipment lưu trữ thông tin vận chuyển cho đơn hàng. 
+Mỗi bản ghi có Shipment\_id (khóa chính), liên kết với Order\_id, kèm thông tin địa chỉ giao hàng (Shipping\_address), 
+phương thức vận chuyển (Shipping\_method), trạng thái vận chuyển (Shipping\_status), số tracking (Tracking\_number) và 
+ngày giao hàng dự kiến (Estimated\_delivery\_date) và phí vận chuyển (fee). \\ \\
+\hspace*{2em} \textbf{Membership\_tier:} Membership\_Tier mô tả hệ thống phân hạng khách hàng dựa trên mức chi tiêu. 
+Mỗi hàng có Tier\_id, tên (Tier\_name), cấp độ (Tier\_lvl), 
+giới hạn chi tiêu hoặc số đơn hàng tối thiểu - tối đa (Min\_spending, max\_spending, min\_order, max\_order), 
+phần trăm giảm giá được hưởng (Discount\_percent), số xu thưởng (Shopee\_coin) và mô tả quyền lợi. 
+Một hạng thành viên có thể có nhiều khách hàng đạt được, nhưng mỗi khách hàng chỉ thuộc về một hạng tại một thời điểm. \\
 
 
 \subsection{Mô tả ràng buộc về ngữ nghĩa}
+\begin{itemize}
+    \item Mỗi đơn hàng chỉ có một bản ghi vận chuyển, và vận chuyển chỉ thuộc về đơn hàng có trạng thái “Đang giao” hoặc “Đã giao”.
+    \item Một khách hàng chỉ được viết một đánh giá cho mỗi sản phẩm trong một đơn hàng.
+    \item Khách hàng chỉ có thể viết đánh giá sau khi đơn hàng đã giao thành công.
+    \item Các đơn trong cùng một Order\_Group phải thuộc cùng Customer và được thanh toán chung.
+    \item Một đơn hàng chỉ có thể hủy trước trạng thái “Đang xử lý”.
+    \item Sản phẩm chỉ được bán khi còn hàng.
+    \item Voucher phải còn hiệu lực theo ngày và đạt giá trị tối thiểu.
+    \item Khi Order được thanh toán, số lượng tồn kho phải giảm đúng theo số lượng mua.
+    \item Nếu tồn kho không đủ, Order không thể tạo hoặc xác nhận.
+    \item Số điện thoại chỉ được chứa ký tự số, độ dài hợp lệ (= 10).
+    \item Giới tính (Gender) chỉ nhận các giá trị trong tập {“Nam”, “Nữ”, “Khác”}.
+    \item Tổng tiền đơn hàng (total\_amount) phải bằng tổng các order\_detail.total\_price trong cùng đơn hàng.
+    \item Tổng thanh toán (total\_payment) trong order\_group phải bằng tổng order.total\_amount – voucher.discount + phí vận chuyển.
+    \item Tier\_name chỉ nhận giá trị trong tập {“Thành viên”, “Bạc”, “Vàng”,“Kim Cương”}
+    \item Tier\_lvl nhận giá trị trong tập [1,4], tương đương thứ tự Thành viên -> Bạc -> Vàng -> Kim Cương.
+    \item Ngày giao dự kiến (estimated\_delivery) phải trùng hoặc sau ngày đặt hàng.
+    \item Số lượng còn lại (stock\_quantity) không được âm.
+    \item Ngày bắt đầu (valid\_from) phải trước ngày kết thúc (valid\_to).
+    \item Email phải đúng định dạng chuẩn.
+    \item Email và số điện thoại của khách hàng phải duy nhất trong toàn hệ thống.
+\end{itemize}
