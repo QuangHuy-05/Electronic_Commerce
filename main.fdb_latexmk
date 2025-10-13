@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1760338343.22781 "d:/ElectronicCommerce/main.tex" "main.pdf" "main" 1760338344.68722 0
+["pdflatex"] 1760347078.77497 "d:/ElectronicCommerce/main.tex" "main.pdf" "main" 1760347080.29097 0
   "C:/Users/quang/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1760085986 88371 b965f57369ed322039596060d18f4416 ""
   "C:/Users/quang/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1200.pk" 1760080397 14064 aef0a3dbe466ebe2a1cb71d8882a1495 ""
   "C:/Users/quang/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1760080223 13286967 d309ea66a61579259eb7c6011769f3da ""
@@ -221,13 +221,13 @@
   "C:/Users/quang/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1729265222 55384 b454dec21c2d9f45ec0b793f0995b992 ""
   "chapter1.tex" 1760087684 1211 cd6f2b74f8251ddddcb962d2a4155756 ""
   "chapter2.tex" 1760338342 16443 55004bf77639a6650b8e8bd6b101e99a ""
-  "d:/ElectronicCommerce/main.tex" 1760328594 8316 6bfda4560704c1818226f0c7058650cb ""
-  "logobk.jpg" 1760086045 16534 d0a0c854d25612072fe0307c0e7655e8 ""
-  "logobk.png" 1752482567 15500 472a8c05c4ec56839c0bd57622ec7631 ""
-  "main.aux" 1760338344 1697 86e24041732fbe95bf7ba1edc38934d7 "pdflatex"
-  "main.out" 1760338344 1934 7795a2ad1e00c273de788c611404d0f3 "pdflatex"
-  "main.tex" 1760328594 8316 6bfda4560704c1818226f0c7058650cb ""
-  "main.toc" 1760338344 917 de1b78d82728028bcbc1a8040cd6653f "pdflatex"
+  "d:/ElectronicCommerce/main.tex" 1760347078 8298 b0b501e4dcecde6781b31c1193ef3811 ""
+  "logo/logobk.jpg" 1760086045 16534 d0a0c854d25612072fe0307c0e7655e8 ""
+  "logo/logobk.png" 1752482567 15500 472a8c05c4ec56839c0bd57622ec7631 ""
+  "main.aux" 1760347080 1697 8e263a3ffff577ddede0ba5c0fc48b43 "pdflatex"
+  "main.out" 1760347080 1934 7795a2ad1e00c273de788c611404d0f3 "pdflatex"
+  "main.tex" 1760347078 8298 b0b501e4dcecde6781b31c1193ef3811 ""
+  "main.toc" 1760347080 917 de1b78d82728028bcbc1a8040cd6653f "pdflatex"
   (generated)
   "main.aux"
   "main.log"
