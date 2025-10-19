@@ -50,7 +50,7 @@ Address, Tax\_code, Shop\_description, Total\_sales, Average\_rating, Response\_
 Một Shop có thể đăng bán nhiều mặt hàng (Item), sắp xếp sản phẩm theo nhiều danh mục (Category), và tiếp nhận nhiều đơn hàng (Order) từ các khách hàng. \\ \\ 
 \hspace*{2em} \textbf{Cart (Giỏ hàng)} Cart là nơi lưu các sản phẩm mà khách hàng dự định mua. Mỗi giỏ hàng được định danh bằng Cart\_id (khóa chính), thuộc về một người dùng (User\_id), và có thể chứa nhiều mục (Cart\_Item). Các thuộc tính tổng hợp như total\_payment và total\_product phản ánh tổng giá trị và số lượng sản phẩm trong giỏ, được tính toán tự động từ các mục con. Mỗi Cart\_Item đại diện cho một sản phẩm cụ thể trong giỏ, có cart\_item\_id (khóa chính), liên kết đến cart\_id, product\_id và shop\_id, đồng thời lưu số lượng muốn mua, giá tại thời điểm thêm (có thể cập nhật nếu người bán cập nhật giá), và tổng tiền tạm tính. Một giỏ hàng chỉ thuộc một khách hàng duy nhất, nhưng có thể chứa sản phẩm của nhiều shop khác nhau. \\
 \\
-\hspace*{2em} \textbf{Category (Danh mục)} Category dùng để phân loại sản phẩm trên hệ thống. Mỗi danh mục có Category\_id (khóa chính), tên danh mục và có thể chứa nhiều mặt hàng thuộc shop khác nhau. Một danh mục có thể nằm trong một danh mục cha, tạo cấu trúc phân cấp nhiều tầng (Ví dụ Thời trang -> Áo thun -> Áo thun nam). Mỗi Item thuộc về một category duy nhất.\\ \\ 
+\hspace*{2em} \textbf{Category (Danh mục)} Category dùng để phân loại sản phẩm trên hệ thống. Mỗi danh mục có Category\_id (khóa chính), tên danh mục, Category\_level, Category\_image và có thể chứa nhiều mặt hàng thuộc shop khác nhau. Một danh mục có thể nằm trong một danh mục cha, tạo cấu trúc phân cấp nhiều tầng (Ví dụ Thời trang -> Áo thun -> Áo thun nam). Mỗi Item thuộc về một category duy nhất.\\ \\ 
 \hspace*{2em} \textbf{Item (Mặt hàng)}Item thể hiện một nhóm sản phẩm chung được hiển thị trên trang bán hàng. 
 Mỗi item có Item\_id (khóa chính) và một danh mục (tham chiếu đến Category). 
 Các thuộc tính chính bao gồm tên mặt hàng (Item\_name), tổng số lượng sản phẩm (Total\_item) và thông tin mô tả chung. 
@@ -77,7 +77,7 @@ Ngoài ra, một Order có thể có nhiều Order\_Detail (mỗi chi tiết th�
 \hspace*{2em} \textbf{Order\_Detail (Chi tiết đơn hàng):}
 Thực thể Order\_Detail lưu trữ thông tin chi tiết về các sản phẩm cụ thể trong từng đơn hàng. Mỗi bản ghi có order\_detail\_id (khóa chính), liên kết với order\_id và product\_id. Các thuộc tính bao gồm product\_specification (như màu sắc, kích thước), quantity, price, total\_price và note.
 Mỗi Order\_Detail thuộc về một Order và một Product, thể hiện mối liên hệ giữa sản phẩm được đặt mua và đơn hàng tương ứng.
-\hspace*{2em} \textbf{Voucher:} Voucher lưu các chương trình khuyến mãi hoặc giảm giá do hệ thống hoặc shop phát hành. 
+\\ \\ \hspace*{2em} \textbf{Voucher:} Voucher lưu các chương trình khuyến mãi hoặc giảm giá do hệ thống hoặc shop phát hành. 
 Mỗi mã có Voucher\_id (khóa chính), mô tả, loại giảm giá (Discount\_type, như phần trăm, giá trị cố định hay giảm/miễn phí vận chuyển), 
 điều kiện áp dụng (Conditions), thời gian hiệu lực (Valid\_from, Valid\_to) và số lượng còn lại. 
 Một voucher có thể được cấp cho nhiều khách hàng và áp dụng cho nhiều nhóm đơn hàng (Order\_Group). \\ \\
@@ -91,11 +91,17 @@ kèm thông tin phương thức thanh toán (Payment\_method), trạng thái tha
 số tiền đã thanh toán (Amount\_paid) và ngày thanh toán (Payment\_date). \\ \\
 \hspace*{2em} \textbf{Shipment (Vận chuyển):} Shipment lưu trữ thông tin vận chuyển cho đơn hàng. 
 Mỗi bản ghi có Shipment\_id (khóa chính), liên kết với Order\_id, kèm thông tin địa chỉ giao hàng (Shipping\_address), 
-phương thức vận chuyển (Shipping\_method), trạng thái vận chuyển (Shipping\_status), số tracking (Tracking\_number) và 
+phương thức vận chuyển (Shipping\_method), số tracking (Tracking\_number) và 
 ngày giao hàng dự kiến (Estimated\_delivery\_date) và phí vận chuyển (fee). \\ \\
+\hspace*{2em} \textbf{Shipment\_Status (Trạng thái vận chuyển):} Thực thể Shipment Status là thực thể yếu, định danh từ Shipment, dùng để theo dõi chi tiết từng giai đoạn trong quá trình vận chuyển hàng hóa.
+Các thuộc tính trong Shipment\_Status bao gồm SS\_Id(key), SS\_Name(Trạng thái giao hàng),Update\_time, Current\_location(vị trí hiện tại của gói hàng). 
+Mỗi Shipment có thể có nhiều trạng thái vận chuyển khác nhau, nhưng tại 1 thời điểm chỉ có thể có 1 trạng thái.\\ \\
+\hspace*{2em} \textbf{Shipment\_Provider:}  Thực thể Shipping Provider biểu diễn các đơn vị vận chuyển hợp tác với Shopee. 
+Định danh từ shipment.  Mỗi đơn vị chịu trách nhiệm giao hàng trong một phạm vi và có những giới hạn riêng về khối lượng, kích thước hoặc khu vực. Các thuộc tính
+bao gồm Provider\_Id(Key), Provider\_Name, Coverage\_Area(Phạm vi hoạt động), Weight\_limit, Size\_Limit, Deliver\_method.\\ \\
 \hspace*{2em} \textbf{Membership\_tier:} Membership\_Tier mô tả hệ thống phân hạng khách hàng dựa trên mức chi tiêu. 
 Mỗi hàng có Tier\_id, tên (Tier\_name), cấp độ (Tier\_lvl), 
-giới hạn chi tiêu hoặc số đơn hàng tối thiểu - tối đa (Min\_spending, max\_spending, min\_order, max\_order), 
+giới hạn chi tiêu hoặc số đơn hàng tối thiểu - tối đa (Min\_spending\_per\_halfyear, min\_order\_per\_halfyear), 
 phần trăm giảm giá được hưởng (Discount\_percent), số xu thưởng (Shopee\_coin) và mô tả quyền lợi. 
 Một hạng thành viên có thể có nhiều khách hàng đạt được, nhưng mỗi khách hàng chỉ thuộc về một hạng tại một thời điểm. \\
 
